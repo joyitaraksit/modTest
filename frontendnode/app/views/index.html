@@ -1,0 +1,107 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Coding Test Service
+      </h1>
+
+      <form class="form" action="/index" method="post" novalidate>
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukInput({
+          label: {
+            text: "Name",
+            classes: "govuk-label--l",
+            isPageHeading: false
+          },
+          classes: "govuk-input--width-10",
+          id: "name",
+          name: "name",
+          spellcheck: false,
+          errorMessage: nameErrorMessage
+        }) }}
+
+        {{ govukRadios({
+          name: "sex",
+          classes: "govuk-radios--inline",
+          fieldset: {
+            legend: {
+            text: "Sex",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--l"
+          }
+          },
+          items: [
+            {
+              value: "MALE",
+              text: "Male"
+            },
+            {
+              value: "FEMALE",
+              text: "Female"
+            }
+          ],
+          errorMessage: sexErrorMessage
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Age",
+            classes: "govuk-label--l",
+            isPageHeading: false
+          },
+          classes: "govuk-input--width-10",
+          id: "age",
+          name: "age",
+          inputmode: "numeric",
+          spellcheck: false,
+          errorMessage: ageErrorMessage
+        }) }}
+
+        {{ govukSelect({
+          id: "country",
+          name: "country",
+          label: {
+            text: "Country",
+            classes: "govuk-label--l"
+          },
+          errorMessage: countryErrorMessage,
+          items: [
+          {
+          value: undefined,
+          text: ""
+          },
+          {
+            value: "England",
+            text: "England"
+            },
+            {
+            value: "Wales",
+            text: "Wales"
+            },
+            {
+            value: "Scotland",
+            text: "Scotland"
+            },
+            {
+            value: "Northern Ireland",
+            text: "Northern Ireland"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Apply"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
