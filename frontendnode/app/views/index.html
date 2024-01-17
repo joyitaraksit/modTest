@@ -23,6 +23,7 @@
           id: "name",
           name: "name",
           spellcheck: false,
+          value: name,
           errorMessage: nameErrorMessage
         }) }}
 
@@ -46,6 +47,7 @@
               text: "Female"
             }
           ],
+          value: sex,
           errorMessage: sexErrorMessage
         }) }}
 
@@ -60,6 +62,7 @@
           name: "age",
           inputmode: "numeric",
           spellcheck: false,
+          value: age,
           errorMessage: ageErrorMessage
         }) }}
 
@@ -72,11 +75,11 @@
           },
           errorMessage: countryErrorMessage,
           items: [
-          {
-          value: undefined,
-          text: ""
-          },
-          {
+            {
+            value: country,
+            text: ""
+            },
+            {
             value: "England",
             text: "England"
             },
