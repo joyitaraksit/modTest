@@ -20,7 +20,7 @@ exports.signup = (request, response, next) => {
     }
 }
 
-exports.getErrorMessages = (errors, sessionData, ...fields) => {
+function getErrorMessages (errors, sessionData, ...fields) {
     let valid = true;
     return fields.reduce((errorMessages, field) => {
         let fieldError = getErrorMessage(errors, field);
@@ -37,7 +37,7 @@ exports.getErrorMessages = (errors, sessionData, ...fields) => {
     }, {});
 }
 
-exports.getErrorMessage = (validationResult, field) => {
+function getErrorMessage (validationResult, field) {
     if (validationResult.errors) {
         let fieldError = validationResult.errors.find(error => error.path === field);
         if (fieldError) {
